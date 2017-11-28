@@ -34,6 +34,7 @@ private enum LyftButtonStatus {
 /// Primary view container for LyftButton.  All styling and automatic configuration functions are here.
 /// To use this, create a UIView, and set the custom class to `LyftButton`
 @IBDesignable
+@objc(LyftButton)
 public class LyftButton: UIView {
 
     @IBOutlet private var button: Button!
@@ -54,7 +55,12 @@ public class LyftButton: UIView {
     public var style: LyftButtonStyle = .mulberryDark {
         didSet { self.setupStyle() }
     }
-
+    
+    @objc public func setButtonStyle(style: Int)
+    {
+        self.style = LyftButtonStyle(rawValue: style)!
+    }
+    
     /// The deep link behavior for this button
     public var deepLinkBehavior: LyftDeepLinkBehavior = .native
 
@@ -84,6 +90,12 @@ public class LyftButton: UIView {
         self.awakeFromNib()
     }
 
+    @objc public func configureButton(pickup: CLLocationCoordinate2D,
+                          destination: CLLocationCoordinate2D)
+    {
+        configure(pickup: pickup, destination: destination);
+    }
+    
     /// Configures the button by providing optional pickup and destination
     ///
     /// - parameter rideKind:       Ride kind to show data for. Defaults to Standard if ride kind unavailable

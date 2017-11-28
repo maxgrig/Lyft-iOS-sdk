@@ -1,3 +1,5 @@
+import Foundation;
+
 /// A kind of ride offered by the Lyft platform in a given area. May include special promotional ride types.
 public struct RideKind: RawRepresentable, Hashable {
     /// The string value of the actual ride kind. For example "lyft_line".

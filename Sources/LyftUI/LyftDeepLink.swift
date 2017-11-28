@@ -37,7 +37,7 @@ public struct LyftDeepLink {
                                    couponCode: String? = nil)
     {
         var parameters = [String: Any]()
-        parameters["partner"] = LyftConfiguration.developer?.clientId
+        parameters["partner"] = LyftConfiguration.developer.clientId
         parameters["credits"] = couponCode
         parameters["id"] = kind.rawValue
         parameters["pickup[latitude]"] = pickup.map { $0.latitude }
@@ -75,7 +75,7 @@ public struct LyftDeepLink {
     @available(iOS 10.0, *)
     private static func launchAppStore() {
         let signUp = LyftConfiguration.signUpIdentifier
-        let id = LyftConfiguration.developer?.clientId ?? "unknown"
+        let id = LyftConfiguration.developer.clientId ?? "unknown"
         let infoDictionary = Bundle.lyftSDKBundle?.infoDictionary
         let version = infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
         let url = "https://www.lyft.com/signup/\(signUp)?clientId=\(id)&sdkName=iOS&sdkVersion=\(version)"

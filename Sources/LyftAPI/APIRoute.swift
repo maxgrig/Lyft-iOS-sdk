@@ -43,7 +43,9 @@ extension APIRoute: Routable {
     var extraHTTPHeaders: [String: String] {
         var extraHeaders: [String: String] = [:]
 
-        if let token = LyftConfiguration.developer?.token {
+        let token = LyftConfiguration.developer.token
+        
+        if token != "" {
             extraHeaders["Authorization"] = "Bearer \(token)"
         }
 

@@ -12,12 +12,12 @@ import UIKit
 /// - mulberryLight:    Mulberry Light style
 /// - multicolor:       Multicolor style
 /// - launcher:         Launcher style
-public enum LyftButtonStyle {
-    case mulberryDark
-    case hotPink
-    case mulberryLight
-    case multicolor
-    case launcher
+@objc public enum LyftButtonStyle : Int {
+    case mulberryDark = 0
+    case hotPink = 1
+    case mulberryLight = 2
+    case multicolor = 3
+    case launcher = 4
 
     // Lyft logo icon displayed in the button
     var icon: UIImage? {
